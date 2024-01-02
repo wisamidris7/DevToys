@@ -214,7 +214,7 @@ internal sealed partial class JsonYamlConverterGuiTool : IGuiTool, IDisposable
                 _settingsProvider.GetSetting(indentationMode),
                 _logger,
                 cancellationToken);
-            _outputTextArea.Text(conversionResult.Data);
+            _outputTextArea.Text(conversionResult.Data!);
         }
     }
 

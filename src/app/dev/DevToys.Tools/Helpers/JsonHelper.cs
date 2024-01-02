@@ -40,7 +40,7 @@ internal static partial class JsonHelper
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Invalid data detected 'input'", input);
+            logger.LogError(ex, "Invalid data detected '{input}'", input);
             return false;
         }
     }
@@ -48,7 +48,7 @@ internal static partial class JsonHelper
     /// <summary>
     /// Format a string to the specified JSON format.
     /// </summary>
-    internal static async ValueTask<string> Format(
+    internal static async ValueTask<ResultInfo<string>> FormatAsync(
         string? input,
         Indentation indentationMode,
         bool sortProperties,
@@ -57,7 +57,7 @@ internal static partial class JsonHelper
     {
         if (input == null || !IsValid(input, logger))
         {
-            return string.Empty;
+            return new(string.Empty, false);
         }
 
         try
@@ -124,16 +124,16 @@ internal static partial class JsonHelper
                 jToken.WriteTo(jsonTextWriter);
             }
 
-            return stringBuilder.ToString();
+            return new(stringBuilder.ToString());
         }
         catch (JsonReaderException ex)
         {
-            return ex.Message;
+            return new(ex.Message, false);
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Invalid JSON format 'indentationMode'", indentationMode);
-            return ex.Message;
+            logger.LogError(ex, "Invalid JSON format '{indentationMode}'", indentationMode);
+            return new(ex.Message, false);
         }
     }
 

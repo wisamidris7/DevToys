@@ -38,6 +38,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>GlobalStrings.resx</DependentUpon>
     </Compile>
+    <Compile Update="Tools\EncodersDecoders\Jwt\JwtEncoderDecoder.Designer.cs">
+      <DependentUpon>JwtEncoderDecoder.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Update="Tools\Formatters\Xml\XmlFormatter.Designer.cs">
       <DependentUpon>XmlFormatter.resx</DependentUpon>
       <DesignTime>True</DesignTime>
@@ -178,6 +183,10 @@
       <LastGenOutput>JsonTableConverter.Designer.cs</LastGenOutput>
       <Generator>ResXFileCodeGenerator</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Tools\EncodersDecoders\Jwt\JwtEncoderDecoder.resx">
+      <LastGenOutput>JwtEncoderDecoder.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Tools\Formatters\Xml\XmlFormatter.resx">
       <LastGenOutput>XmlFormatter.Designer.cs</LastGenOutput>
       <Generator>ResXFileCodeGenerator</Generator>
@@ -300,6 +309,7 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" />
     <PackageReference Include="YamlDotNet" />
     <PackageReference Include="Markdig" />
     <PackageReference Include="Markdown.ColorCode" />
