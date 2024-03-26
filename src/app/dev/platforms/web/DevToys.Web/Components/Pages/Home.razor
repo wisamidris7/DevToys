@@ -1,0 +1,26 @@
+﻿@page "/"
+@using DevToys.Api
+@using DevToys.Blazor.Components
+
+<Container>
+    <h1>Welcome To Home Page</h1>
+    <StackPanel Height="20">
+        <Button @onclick="() => IsOpen = true">Open Dialog</Button>
+        <Button>My Button</Button>
+        <Button>My Button</Button>
+    </StackPanel>
+    <Dialog IsOpen="IsOpen" Dismissible OnDismissed="e => IsOpen = false">
+        <Content>
+            <StackPanel Spacing="100" HorizontalAlignment="UIHorizontalAlignment.Center" Height="30">
+                <h1>Hello</h1>
+                <Button @onclick="() => IsOpen = false">X</Button>
+            </StackPanel>
+        </Content>
+    </Dialog>
+    <PopoverProvider />
+</Container>
+
+
+@code {
+    public bool IsOpen = false;
+}
