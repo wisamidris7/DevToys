@@ -17,6 +17,11 @@
             </StackPanel>
         </Content>
     </Dialog>
+    <DataGrid Columns="@((new List<string> { "WSM", "WSM2" }).ToArray())" Rows="@(new List<WSMList>(){new() { "WSM", "WSM1"}, new() { "WSM", "WSM1"}})" TRow="WSMList" TCell="string" TRowDetail="string">
+        <CellTemplate>
+            @context.ToString()
+        </CellTemplate>
+    </DataGrid>
     <PopoverProvider />
 </Container>
 
