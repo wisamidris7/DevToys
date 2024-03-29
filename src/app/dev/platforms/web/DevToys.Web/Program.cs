@@ -14,6 +14,7 @@ using DevToys.Web.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualBasic;
+using DevToys.Business.ViewModels;
 
 internal class Program
 {
@@ -68,8 +69,8 @@ internal class Program
         app.UseAntiforgery();
 
         app.MapRazorComponents<App>()
-            .AddInteractiveServerRenderMode();
-            //.AddAdditionalAssemblies(typeof(MainLayout).Assembly);
+            .AddInteractiveServerRenderMode()
+            .AddAdditionalAssemblies(typeof(MainLayout).Assembly);
         app.Run();
     }
     private static void InitServices()
@@ -92,6 +93,7 @@ internal class Program
         _mefComposer
             = new MefComposer(
                 assemblies: new[] {
+                    typeof(MainWindowViewModel).Assembly,
                     typeof(TitleBarInfoProvider).Assembly,
                     typeof(ThemeListener).Assembly,
                     typeof(DevToysBlazorResourceManagerAssemblyIdentifier).Assembly

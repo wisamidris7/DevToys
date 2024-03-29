@@ -123,7 +123,7 @@ public partial class ToolPage : MefComponentBase, IFocusable
     {
         Guard.IsNotNull(IndexPage);
         ViewModel.ToggleSelectedMenuItemFavoriteCommand.Execute(null);
-        //IndexPage.StateHasChanged();
+        IndexPage.StateHasChanged();
     }
 
     private void OnHotReloadRequestUpdateApplication(object? sender, HotReloadEventArgs e)

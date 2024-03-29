@@ -1,6 +1,6 @@
 ﻿@using DevToys.Blazor.Pages
 @using System.Reflection
-<Router AppAssembly="typeof(Program).Assembly">
+<Router AppAssembly="typeof(Program).Assembly" AdditionalAssemblies="@(new List<Assembly>() {typeof(MainLayout).Assembly})">
     <Found Context="routeData">
         <RouteView RouteData="routeData" DefaultLayout="typeof(MainLayout)" />
         <FocusOnNavigate RouteData="routeData" Selector="h1" />
